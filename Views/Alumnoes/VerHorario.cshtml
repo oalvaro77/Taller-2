@@ -1,0 +1,34 @@
+﻿@model List<GestionAcademica.Models.Horario>
+
+@{
+	ViewData["Tittle"] = "Horario del alumno";
+
+}
+
+<h2> Horario del alumno</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Curso</th>
+            <th>Profesor</th>
+            <th>Día</th>
+            <th>Hora Inicio</th>
+            <th>Hora Final</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var horario in Model)
+        {
+                <tr>
+                    <td>@horario.Curso.Nombre</td>
+                    <td>@horario.Profesor.Nombre</td>
+                    <td>@horario.Dia</td>
+                    <td>@horario.HoraInicio</td>
+                    <td>@horario.HoraFinal</td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Index", "Alumnoes")" class="btn btn-primary">Regresar a la lista de Alumnos</a>

@@ -4,23 +4,20 @@ using GestionAcademica.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace GestionAcademica.Data.Migrations
+namespace GestionAcademica.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241018212030_Horarios")]
-    partial class Horarios
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.7")
+                .HasAnnotation("ProductVersion", "8.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -75,8 +72,11 @@ namespace GestionAcademica.Data.Migrations
 
             modelBuilder.Entity("GestionAcademica.Models.Facultad", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -95,6 +95,9 @@ namespace GestionAcademica.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("AlumnoID")
+                        .HasColumnType("int");
+
                     b.Property<int>("CursoID")
                         .HasColumnType("int");
 
@@ -112,6 +115,8 @@ namespace GestionAcademica.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AlumnoID");
 
                     b.HasIndex("CursoID");
 
@@ -161,17 +166,13 @@ namespace GestionAcademica.Data.Migrations
                     b.Property<int>("FacultadId")
                         .HasColumnType("int");
 
-                    b.Property<string>("FacultadId1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FacultadId1");
+                    b.HasIndex("FacultadId");
 
                     b.ToTable("Profesores");
                 });
@@ -380,6 +381,12 @@ namespace GestionAcademica.Data.Migrations
 
             modelBuilder.Entity("GestionAcademica.Models.Horario", b =>
                 {
+                    b.HasOne("GestionAcademica.Models.Alumno", "Alumno")
+                        .WithMany("Horarios")
+                        .HasForeignKey("AlumnoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("GestionAcademica.Models.Curso", "Curso")
                         .WithMany("Horarios")
                         .HasForeignKey("CursoID")
@@ -391,6 +398,8 @@ namespace GestionAcademica.Data.Migrations
                         .HasForeignKey("ProfesorID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Alumno");
 
                     b.Navigation("Curso");
 
@@ -420,7 +429,7 @@ namespace GestionAcademica.Data.Migrations
                 {
                     b.HasOne("GestionAcademica.Models.Facultad", "Facultad")
                         .WithMany("Profesores")
-                        .HasForeignKey("FacultadId1")
+                        .HasForeignKey("FacultadId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -476,6 +485,11 @@ namespace GestionAcademica.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("GestionAcademica.Models.Alumno", b =>
+                {
+                    b.Navigation("Horarios");
                 });
 
             modelBuilder.Entity("GestionAcademica.Models.Curso", b =>
