@@ -1,19 +1,24 @@
 ﻿@{
-    ViewData["Title"] = "Pagina Principal";
+    ViewData["Title"] = "Página Principal";
 }
 
-<div class="jumbotron">
-    <h1 class="display-4">Bienvenido a la Gestión Académica</h1>
-    <p class="lead">Esta es la página principal donde puedes gestionar los alumnos, cursos, profesores y más.</p>
-    <hr class="my-4">
-    <p>Puedes explorar las funcionalidades desde el menú o los botones de abajo.</p>
-    <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Alumnoes")" role="button">Ver Alumnos</a>
-    <a class="btn btn-secondary btn-lg" href="@Url.Action("Index", "Cursoes")" role="button">Ver Cursos</a>
-    <a class="btn btn-secondary btn-lg" href="@Url.Action("Index", "Horarios")" role="button">Ver Horarios</a>
-    <a class="btn btn-secondary btn-lg" href="@Url.Action("Index", "Profesors")" role="button">Ver Profesores</a>
-    <a class="btn btn-secondary btn-lg" href="@Url.Action("Index", "Facultads")" role="button">Ver Facultades</a>
-    
+<div class="container mt-5">
+    <div class="jumbotron bg-light p-5 rounded">
+        <div class="text-center mb-4">
+            <img src="https://media.istockphoto.com/id/1030995160/es/vector/edificio-moderno-de-escuela-fina-ilustraci%C3%B3n-de-vector-de-l%C3%ADnea-dise%C3%B1o-estilo.jpg?s=612x612&w=0&k=20&c=_D_1JM-vSqAblStzJiKNkTsAcMLzw2HR5hYbdKtqCBc=" alt="Imagen de colegio" class="img-fluid rounded" style="max-width: 300px;">
+        </div>
 
-
-    
+        <h1 class="display-4">Bienvenido a la Gestión Académica</h1>
+        <p class="lead">Esta es la página principal donde puedes gestionar los alumnos, cursos, profesores y más.</p>
+        <hr class="my-4">
+        <p>Explora las funcionalidades desde el menú o utiliza los accesos directos a continuación:</p>
+        
+        <div class="d-flex flex-wrap gap-2 mt-3">
+            <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Alumnoes")" role="button">Ver Alumnos</a>
+            <a class="btn btn-success btn-lg" href="@Url.Action("Index", "Cursoes")" role="button">Ver Cursos</a>
+            <a class="btn btn-info btn-lg" href="@Url.Action("Index", "Horarios")" role="button">Ver Horarios</a>
+            <a class="btn btn-warning btn-lg" href="@Url.Action("Index", "Profesors")" role="button">Ver Profesores</a>
+            <a class="btn btn-dark btn-lg" href="@Url.Action("Index", "Facultads")" role="button">Ver Facultades</a>
+        </div>
+    </div>
 </div>
