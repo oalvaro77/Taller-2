@@ -1,4 +1,4 @@
-namespace GestionAcademica.Models
+﻿namespace GestionAcademica.Models
 {
     public class ErrorViewModel
     {

@@ -1,4 +1,4 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "Página Principal";
 }
 
@@ -12,13 +12,11 @@
         <p class="lead">Esta es la página principal donde puedes gestionar los alumnos, cursos, profesores y más.</p>
         <hr class="my-4">
         <p>Explora las funcionalidades desde el menú o utiliza los accesos directos a continuación:</p>
-        
+
         <div class="d-flex flex-wrap gap-2 mt-3">
-            <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Alumnoes")" role="button">Ver Alumnos</a>
-            <a class="btn btn-success btn-lg" href="@Url.Action("Index", "Cursoes")" role="button">Ver Cursos</a>
-            <a class="btn btn-info btn-lg" href="@Url.Action("Index", "Horarios")" role="button">Ver Horarios</a>
-            <a class="btn btn-warning btn-lg" href="@Url.Action("Index", "Profesors")" role="button">Ver Profesores</a>
-            <a class="btn btn-dark btn-lg" href="@Url.Action("Index", "Facultads")" role="button">Ver Facultades</a>
+            <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Estudiantes")" role="button">Ver Estudiantes</a>
+            <a class="btn btn-success btn-lg" href="@Url.Action("Index", "Cursos")" role="button">Ver Cursos</a>
+            <a class="btn btn-dark btn-lg" href="@Url.Action("Index", "Matriculas")" role="button">Ver Matriculas</a>
         </div>
     </div>
 </div>
