@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestionAcademica.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241025235418_Primera")]
-    partial class Primera
+    [Migration("20241028002456_primera")]
+    partial class primera
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
