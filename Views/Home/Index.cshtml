@@ -1,8 +1,19 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Pagina Principal";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<<div class="jumbotron">
+    <h1 class="display-4">Bienvenido a la Gestión Académica</h1>
+    <p class="lead">Esta es la página principal donde puedes gestionar los alumnos, cursos, profesores y más.</p>
+    <hr class="my-4">
+    <p>Puedes explorar las funcionalidades desde el menú o los botones de abajo.</p>
+    <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Alumnoes")" role="button">Ver Alumnos</a>
+    <a class="btn btn-secondary btn-lg" href="@Url.Action("Index", "Cursoes")" role="button">Ver Cursos</a>
+    <a class="btn btn-secondary btn-lg" href="@Url.Action("Index", "Horarios")" role="button">Ver Horarios</a>
+    <a class="btn btn-secondary btn-lg" href="@Url.Action("Index", "Profesors")" role="button">Ver Profesores</a>
+    <a class="btn btn-secondary btn-lg" href="@Url.Action("Index", "Facultads")" role="button">Ver Facultades</a>
+    
+
+
+    
 </div>

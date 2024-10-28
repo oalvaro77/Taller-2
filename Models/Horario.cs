@@ -13,6 +13,12 @@
         public int ProfesorID { get; set; }
         public Profesor Profesor { get; set; }
 
+        public int AlumnoID { get; set; }
+
+        public Alumno Alumno { get; set; }
+
+
+
 
 
     }
